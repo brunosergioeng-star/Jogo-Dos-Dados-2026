@@ -8,13 +8,15 @@ Random aleatorio = new Random();
 Console.WriteLine("--------------------------");
 Console.WriteLine("***** JOGO DOS DADOS *****");
 Console.WriteLine("--------------------------");
+Console.WriteLine("Pressione ENTER para iniciar o jogo!");
+Console.WriteLine("--------------------------");
 Console.ReadLine();
 
 while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 {
     //usuario
-
-    Console.WriteLine("Sua vez do USUARIO jogar!");
+    Console.Clear();
+    Console.WriteLine("Vez do USUARIO jogar!");
     Console.WriteLine("Para rolar os dados, pressione ENTER");
     Console.ReadLine();
 
@@ -25,7 +27,7 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
     casaJogador += dadosJogador;
 
-    Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+    Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador} de {linhaChegada}");
     Console.WriteLine("--------------------------");
 
 
@@ -42,13 +44,13 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
         casaJogador += dadosJogador;
 
-        Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+        Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador} de {linhaChegada}");
         Console.WriteLine("--------------------------");
     }
 
     if (casaJogador == 5 || casaJogador == 10 || casaJogador == 15)
     {
-        Console.WriteLine("Sorte, pode PULE mais 3 casas!");
+        Console.WriteLine("Sorte, pode PULAR mais 3 casas!");
         casaJogador += 3;
     }
 
@@ -61,6 +63,17 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
     if (casaJogador >= linhaChegada)
         break;
 
+    if (casaJogador >= linhaChegada)
+    {
+        Console.WriteLine("---------------------------");
+        Console.WriteLine("O usuário VENCEU, PARABENS!");
+        Console.WriteLine("Preassione ENTES para continuar...");
+        Console.ReadLine();
+
+        break;
+    }
+
+
     // CPU
     Console.WriteLine("--------------------------");
     Console.WriteLine("Agora é a vez da CPU!");
@@ -71,7 +84,7 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
     casaCPU += dadosCPU;
 
-    Console.WriteLine($"A casa em que a CPU esta é: {casaCPU}");
+    Console.WriteLine($"A casa em que a CPU é: {casaCPU} de {linhaChegada}");
     Console.WriteLine("--------------------------");
 
     while (dadosCPU == 6)
@@ -83,13 +96,14 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
         casaCPU += dadosCPU;
 
-        Console.WriteLine($"A casa em que a CPU esta é: {casaCPU}");
+        Console.WriteLine("--------------------------");
+        Console.WriteLine($"A casa em que a CPU é: {casaCPU} de {linhaChegada}");
         Console.WriteLine("--------------------------");
     }
 
     if (casaCPU == 5 || casaCPU == 10 || casaCPU == 15)
     {
-        Console.WriteLine("Sorte, pode PULE mais 3 casas!");
+        Console.WriteLine("Sorte, pode PULAR mais 3 casas!");
         casaCPU += 3;
     }
 
@@ -101,15 +115,16 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
     if (casaCPU >= linhaChegada)
         break;
-}
 
-if (casaJogador >= linhaChegada)
-{
-    Console.WriteLine("O usuário VENCEU, PARABENS!");
-}
-else if(casaCPU >= linhaChegada)
-{
-    Console.WriteLine("Que pena voce PERDEU, a CPU venceu!");
+    if (casaCPU >= linhaChegada)
+    {
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("Que pena voce PERDEU, a CPU venceu!");
+        Console.WriteLine("Preassione ENTES para continuar...");
+        Console.ReadLine();
+
+        break;
+    }
 }
 
 Console.ReadLine();
