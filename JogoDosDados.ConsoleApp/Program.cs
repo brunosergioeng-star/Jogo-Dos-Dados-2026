@@ -52,12 +52,14 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
     Console.ReadLine();
 
     int dadosJogador = aleatorio.Next(1, 7);
+    Console.WriteLine("--------------------------");
     Console.WriteLine($"Na sua jogada você tirou: {dadosJogador}");
     Console.ReadLine();
 
     casaJogador += dadosJogador;
 
     Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+    Console.WriteLine("--------------------------");
 
 
     if (casaJogador >= linhaChegada)
@@ -74,6 +76,19 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
         casaJogador += dadosJogador;
 
         Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+        Console.WriteLine("--------------------------");
+    }
+
+    if (casaJogador == 5 || casaJogador == 10 || casaJogador == 15)
+    {
+        Console.WriteLine("Sorte, pode PULE mais 3 casas!");
+        casaJogador += 3;
+    }
+
+    else if (casaJogador == 7 || casaJogador == 13 || casaJogador == 20)
+    {
+        Console.WriteLine("Que azar, VOLTE duas casas!");
+        casaJogador -= 2;
     }
 
     if (casaJogador >= linhaChegada)
@@ -90,20 +105,46 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
     casaCPU += dadosCPU;
 
     Console.WriteLine($"A casa em que a CPU esta é: {casaCPU}");
+    Console.WriteLine("--------------------------");
 
     while (dadosCPU == 6)
     {
         Console.WriteLine("A CPU tirou 6, vai jogar novamente!");
 
-        dadosJogador = aleatorio.Next(1, 7);
-        Console.WriteLine($"CPU você tirou: {dadosJogador}");
+        dadosCPU = aleatorio.Next(1, 7);
+        Console.WriteLine($"CPU você tirou: {dadosCPU}");
 
-        casaJogador += dadosJogador;
+        casaCPU += dadosCPU;
 
-        Console.WriteLine($"A casa em que a CPU esta é: {casaJogador}");
+        Console.WriteLine($"A casa em que a CPU esta é: {casaCPU}");
+        Console.WriteLine("--------------------------");
+    }
+
+    if (casaCPU == 5 || casaCPU == 10 || casaCPU == 15)
+    {
+        Console.WriteLine("Sorte, pode PULE mais 3 casas!");
+        casaCPU += 3;
+    }
+
+    else if (casaCPU == 7 || casaCPU == 13 || casaCPU == 20)
+    {
+        Console.WriteLine("Que azar, VOLTE duas casas!");
+        casaCPU -= 2;
     }
 
     if (casaCPU >= linhaChegada)
         break;
 }
+
+if (casaJogador >= linhaChegada)
+{
+    Console.WriteLine("O usuário VENCEU, PARABENS!");
+}
+else if (casaCPU >= linhaChegada)
+{
+    Console.WriteLine("Que pena voce PERDEU, a CPU venceu!");
+}
+
+Console.ReadLine();
+return;
 
