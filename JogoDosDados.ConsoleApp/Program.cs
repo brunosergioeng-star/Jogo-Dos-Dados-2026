@@ -46,8 +46,64 @@ Console.ReadLine();
 while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 {
     //usuario
-    int dadosJogador = Random.Next(1, 7);
+
+    Console.WriteLine("Sua vez do USUARIO jogar!");
+    Console.WriteLine("Para rolar os dados, pressione ENTER");
+    Console.ReadLine();
+
+    int dadosJogador = aleatorio.Next(1, 7);
     Console.WriteLine($"Na sua jogada você tirou: {dadosJogador}");
     Console.ReadLine();
 
+    casaJogador += dadosJogador;
+
+    Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+
+
+    if (casaJogador >= linhaChegada)
+        break;
+
+    while (dadosJogador == 6)
+    {
+        Console.WriteLine("Sorte, você tirou 6! Pressione ENTER para jogar novamente!");
+        Console.ReadLine();
+
+        dadosJogador = aleatorio.Next(1, 7);
+        Console.WriteLine($"Na sua nova jogada você tirou: {dadosJogador}");
+
+        casaJogador += dadosJogador;
+
+        Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador}");
+    }
+
+    if (casaJogador >= linhaChegada)
+        break;
+
+    // CPU
+    Console.WriteLine("--------------------------");
+    Console.WriteLine("Agora é a vez da CPU!");
+
+    int dadosCPU = aleatorio.Next(1, 7);
+    Console.WriteLine($"CPU tirou: {dadosCPU}");
+    Console.ReadLine();
+
+    casaCPU += dadosCPU;
+
+    Console.WriteLine($"A casa em que a CPU esta é: {casaCPU}");
+
+    while (dadosCPU == 6)
+    {
+        Console.WriteLine("A CPU tirou 6, vai jogar novamente!");
+
+        dadosJogador = aleatorio.Next(1, 7);
+        Console.WriteLine($"CPU você tirou: {dadosJogador}");
+
+        casaJogador += dadosJogador;
+
+        Console.WriteLine($"A casa em que a CPU esta é: {casaJogador}");
+    }
+
+    if (casaCPU >= linhaChegada)
+        break;
 }
+
