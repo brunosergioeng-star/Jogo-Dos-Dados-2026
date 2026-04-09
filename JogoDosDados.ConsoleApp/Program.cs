@@ -61,15 +61,11 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
     }
 
     if (casaJogador >= linhaChegada)
-        break;
-
-    if (casaJogador >= linhaChegada)
     {
         Console.WriteLine("---------------------------");
         Console.WriteLine("O usuário VENCEU, PARABENS!");
         Console.WriteLine("Preassione ENTES para continuar...");
         Console.ReadLine();
-
         break;
     }
 
@@ -84,7 +80,7 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
     casaCPU += dadosCPU;
 
-    Console.WriteLine($"A casa em que a CPU é: {casaCPU} de {linhaChegada}");
+    Console.WriteLine($"A casa em que a CPU esta é: {casaCPU} de {linhaChegada}");
     Console.WriteLine("--------------------------");
 
     while (dadosCPU == 6)
@@ -97,7 +93,7 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
         casaCPU += dadosCPU;
 
         Console.WriteLine("--------------------------");
-        Console.WriteLine($"A casa em que a CPU é: {casaCPU} de {linhaChegada}");
+        Console.WriteLine($"A casa em que a CPU esta é: {casaCPU} de {linhaChegada}");
         Console.WriteLine("--------------------------");
     }
 
@@ -112,9 +108,6 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
         Console.WriteLine("Que azar, VOLTE duas casas!");
         casaCPU -= 2;
     }
-
-    if (casaCPU >= linhaChegada)
-        break;
 
     if (casaCPU >= linhaChegada)
     {
