@@ -14,7 +14,7 @@ Console.ReadLine();
 
 while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 {
-    //usuario
+
     Console.Clear();
     Console.WriteLine("Vez do USUARIO jogar!");
     Console.WriteLine("Para rolar os dados, pressione ENTER");
@@ -29,10 +29,6 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
     Console.WriteLine($"A casa em que o USUARIO esta é: {casaJogador} de {linhaChegada}");
     Console.WriteLine("--------------------------");
-
-
-    if (casaJogador >= linhaChegada)
-        break;
 
     while (dadosJogador == 6)
     {
@@ -118,6 +114,8 @@ while (casaJogador < linhaChegada && casaCPU < linhaChegada)
 
         break;
     }
-}
 
+    Console.WriteLine("Pressione ENTER para contiunuar...");
+    Console.ReadLine();
+}
 Console.ReadLine();
